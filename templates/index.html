@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<title>GMU WashStat</title>
+		<script src="/static/jquery-3.3.1.min.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+	<body>
+		<h1>GMU WashStat</h1>
+		<label for="roomchooser">Choose a room:</label>
+		<select id="roomchooser">
+			<option value="">-- Select a room --</option>
+			<option value="gmuadams">Adams</option>
+			<option value="gmuamherst1">Amherst 1</option>
+			<option value="gmuamherst2">Amherst 2</option>
+			<option value="gmuamherst3">Amherst 3</option>
+			<option value="gmublueridge">Blue Ridge</option>
+			<option value="gmubrunswick1">Brunswick 1</option>
+			<option value="gmubrunswick2">Brunswick 2</option>
+			<option value="gmubrunswick3">Brunswick 3</option>
+			<option value="gmucarroll1">Carroll 1</option>
+			<option value="gmucarroll2">Carroll 2</option>
+			<option value="gmucarroll3">Carroll 3</option>
+			<option value="gmucommonwealth">Commonwealth</option>
+			<option value="gmudickenson1">Dickenson 1</option>
+			<option value="gmudickenson2">Dickenson 2</option>
+			<option value="gmudickenson3">Dickenson 3</option>
+			<option value="gmudominion">Dominion</option>
+			<option value="gmueasternshore">Eastern Shore</option>
+			<option value="gmuessex1">Essex 1</option>
+			<option value="gmuessex2">Essex 2</option>
+			<option value="gmufranklin1">Franklin 1</option>
+			<option value="gmufranklin2">Franklin 2</option>
+			<option value="gmugrayson1">Grayson 1</option>
+			<option value="gmugrayson2">Grayson 2</option>
+			<option value="gmuhamptonroads">Hampton Roads</option>
+			<option value="gmuharrison">Harrison</option>
+			<option value="gmulibertysquarea">Liberty Square A</option>
+			<option value="gmulibertysquarebc1">Liberty Square B/C-1</option>
+			<option value="gmulibertysquarebc2">Liberty Square B/C-2</option>
+			<option value="gmulibertysquarebc3">Liberty Square B/C-3</option>
+			<option value="gmulibertysquarebc4">Liberty Square B/C-4</option>
+			<option value="gmulibertysquarede1">Liberty Square D/E-1</option>
+			<option value="gmulibertysquarede2">Liberty Square D/E-2</option>
+			<option value="gmulibertysquarede3">Liberty Square D/E-3</option>
+			<option value="gmulibertysquaredelower">Liberty Square D/E-Lower</option>
+			<option value="gmulincoln">Lincoln</option>
+			<option value="gmumasonglobalcenter4">Global Center 4</option>
+			<option value="gmumasonglobalcenter5">Global Center 5</option>
+			<option value="gmunorthernneck">Northern Neck</option>
+			<option value="gmupiedmont">Piedmont</option>
+			<option value="gmupotomacheightsa107">Potomac Heights A-107</option>
+			<option value="gmupotomacheightsc125">Potomac Heights C-125</option>
+			<option value="gmupotomacheightsef150">Potomac Heights EF-150</option>
+			<option value="gmupotomacheightscd232">Potomac Heights CD-232</option>
+			<option value="gmupotomacheightscd332">Potomac Heights CD-332</option>
+			<option value="gmupotomacheightscd432">Potomac Heights CD-432</option>
+			<option value="gmupotomacheightscd530">Potomac Heights CD-530</option>
+			<option value="gmurogers">Rogers</option>
+			<option value="gmusandbridge">Sandbridge</option>
+			<option value="gmutaylor">Taylor</option>
+			<option value="gmutidewater">Tidewater</option>
+			<option value="gmuwhitetop">Whitetop</option>
+		</select>
+		<div id="history" style="width:1000px;height:600px;"></div>
+		<label for="daychooser">Choose a day:</label>
+		<select id="daychooser">
+			<option value="">-- Select a day --</option>
+			<option value="6">Sunday</option>
+			<option value="0">Monday</option>
+			<option value="1">Tuesday</option>
+			<option value="2">Wednesday</option>
+			<option value="3">Thursday</option>
+			<option value="4">Friday</option>
+			<option value="5">Saturday</option>
+		</select>
+		<div id="average" style="width:1000px;height:600px;"></div>
+	</body>
+	<footer>
+		<script src="/static/script.js"></script>
+	</footer>
+</html>
