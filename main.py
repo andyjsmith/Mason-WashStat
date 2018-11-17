@@ -20,7 +20,7 @@ def index():
 
 @app.route("/api/history/<room>")
 def history(room=None):
-	cursor.execute("SELECT time, weekday, available_washers, available_dryers FROM wash.history WHERE room=%s AND time >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `time` DESC", (room,))
+	cursor.execute("SELECT time, weekday, available_washers, available_dryers FROM wash.history WHERE room=%s AND time >= DATE_SUB(NOW(), INTERVAL 12 HOUR) ORDER BY `time` DESC", (room,))
 	results = []
 	for time, weekday, available_washers, available_dryers in cursor:
 		results.append({"time": time.strftime("%Y-%m-%d %H:%M"), "weekday": weekday, "available_washers": available_washers, "available_dryers": available_dryers})
@@ -63,3 +63,14 @@ def weekAverage(room=None):
 		firstWeekday = sorted(averages)[0][:1]
 		results.append({"timecode": tc, "available_washers": averages[tc]["washer_avg"], "available_dryers": averages[tc]["dryer_avg"]})
 	return jsonify(results)
+
+@app.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    return r

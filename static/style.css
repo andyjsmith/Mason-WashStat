@@ -1,0 +1,13 @@
+html {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.content {
+	max-width: 1000px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+#history {
+	margin-bottom: 50px;
+}
