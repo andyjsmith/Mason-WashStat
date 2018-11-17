@@ -14,16 +14,38 @@ function clearAverage() {
 
 // Redraw the average chart with data from averageData
 function redrawAverage() {
-	averageData.forEach(element => {
+	averageData.forEach(function(element) {
 		if(element["timecode"].toString()[0] === daychooser.value) {
-		dryerAvgData.x.push(timecodeToTime(element["timecode"]));
-		dryerAvgData.y.push(element["available_dryers"]);
-		washerAvgData.x.push(timecodeToTime(element["timecode"]));
-		washerAvgData.y.push(element["available_washers"]);
+			dryerAvgData.x.push(timecodeToTime(element["timecode"]));
+			dryerAvgData.y.push(element["available_dryers"]);
+			washerAvgData.x.push(timecodeToTime(element["timecode"]));
+			washerAvgData.y.push(element["available_washers"]);
 		}
 	});
 	Plotly.redraw("average");
 }
+
+// Hide or show the history and average charts
+function hideHistory(hide) {
+	if (hide) {
+		$("#history").hide();
+		$(".daychooser-container").hide();
+		hideAverage(true);
+	} else {
+		$("#history").show();
+		$(".daychooser-container").show();
+	}
+}
+
+function hideAverage(hide) {
+	if (hide) {
+		$("#average").hide();
+		daychooser.value = "";
+	} else {
+		$("#average").show();
+	}
+}
+
 
 // Definitions for the history chart
 var dryerData = {
@@ -158,15 +180,28 @@ var roomchooser = document.getElementById("roomchooser");
 var daychooser = document.getElementById("daychooser");
 
 // Clear and redraw the average chart when a day is chosen
-daychooser.addEventListener("change", () => {
+daychooser.addEventListener("change", function() {
+	if (daychooser.value === "") {
+		hideAverage(true);
+		return;
+	} else {
+		hideAverage(false);
+	}
 	clearAverage();
 	redrawAverage();
 });
 
 // Request new data when the room is changed
-roomchooser.addEventListener("change", () => {
+roomchooser.addEventListener("change", function() {
+	if (roomchooser.value === "") {
+		hideHistory(true);
+		return;
+	} else {
+		hideHistory(false);
+	}
+
 	$.get("/api/history/" + roomchooser.value, function(data) {
-		data.forEach(element => {
+		data.forEach(function(element) {
 			dryerData.x.push(new Date(element["time"]));
 			dryerData.y.push(element["available_dryers"]);
 			washerData.x.push(new Date(element["time"]));
@@ -179,7 +214,7 @@ roomchooser.addEventListener("change", () => {
 	dryerData.y = []
 	washerData.x = []
 	washerData.y = []
-	data.forEach(element => {
+	data.forEach(function(element) {
 		dryerData.x.push(new Date(element["time"]));
 		dryerData.y.push(element["available_dryers"]);
 		washerData.x.push(new Date(element["time"]));

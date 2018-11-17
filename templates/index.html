@@ -10,7 +10,14 @@
 	<body>
 		<div class="content">
 			<h1>GMU WashStat</h1>
-			<label for="roomchooser">Choose a room:</label>
+			<p>
+				Laundry room statistics for George Mason University
+			</p>
+			<p>
+				View the history of washer and dryer availability for the last 12 hours and check daily availability averages to pick the best time to do your laundry.
+			</p>
+			<h3>Availabilty over the last 12 hours</h3>
+			<label for="roomchooser">Choose a laundry room:</label>
 			<select id="roomchooser">
 				<option value="">-- Select a room --</option>
 				<option value="gmuadams">Adams</option>
@@ -66,17 +73,20 @@
 				<option value="gmuwhitetop">Whitetop</option>
 			</select>
 			<div id="history"></div>
-			<label for="daychooser">Choose a day:</label>
-			<select id="daychooser">
-				<option value="">-- Select a day --</option>
-				<option value="6">Sunday</option>
-				<option value="0">Monday</option>
-				<option value="1">Tuesday</option>
-				<option value="2">Wednesday</option>
-				<option value="3">Thursday</option>
-				<option value="4">Friday</option>
-				<option value="5">Saturday</option>
-			</select>
+			<div class="daychooser-container">
+				<h3>Average usage for a day of the week</h3>
+				<label for="daychooser">Choose a day:</label>
+				<select id="daychooser">
+					<option value="">-- Select a day --</option>
+					<option value="6">Sunday</option>
+					<option value="0">Monday</option>
+					<option value="1">Tuesday</option>
+					<option value="2">Wednesday</option>
+					<option value="3">Thursday</option>
+					<option value="4">Friday</option>
+					<option value="5">Saturday</option>
+				</select>
+			</div>
 			<div id="average"></div>
 		</div>
 	</body>

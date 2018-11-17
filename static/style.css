@@ -10,4 +10,13 @@ html {
 
 #history {
 	margin-bottom: 50px;
+	display: none;
+}
+
+#average {
+	display: none;
+}
+
+.daychooser-container {
+	display: none;
 }
